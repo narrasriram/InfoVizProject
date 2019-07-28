@@ -102,6 +102,7 @@ class CanadaDataTemp(models.Model):
     climat_id = models.CharField(max_length=10, blank=True, null=True)
     data_month = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
     data_year = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+    yearmon = models.CharField(max_length=20, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -162,3 +163,6 @@ class OrderInfo(models.Model):
     class Meta:
         managed = False
         db_table = 'order_info'
+# Unable to inspect table 'sample'
+# The error was: permission denied for table sample
+

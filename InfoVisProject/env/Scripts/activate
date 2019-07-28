@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Chermaraj\source\repos\InfoVisProject\InfoVisProject\env"
+VIRTUAL_ENV="C:\Users\narra\source\repos\Chermaraj\InfoVisProject\InfoVisProject\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

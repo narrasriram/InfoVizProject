@@ -1,56 +1,137 @@
-{% extends "app/layout.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+    {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'visualapp/lib/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'visualapp/lib/css/keen-dashboards.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'visualapp/lib/css/dc.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'visualapp/css/custom.css' %}" />
 
-{% block content %}
 
-<div class="jumbotron">
-    <h1>Django</h1>
-    <p class="lead">Django is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://www.djangoproject.com/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            Django gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://djangobook.com/django-tutorials/">Learn more &raquo;</a></p>
+</head>
+<body class="application">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./">Donorschoose Dashboard</a>
+      </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>The Python Package Index is a repository of software for the Python programming language.</p>
-        <p><a class="btn btn-default" href="https://pypi.org/">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Microsoft Azure</h2>
-        <p>You can easily publish to Microsoft Azure using Visual Studio. Find out how you can host your application using a free trial today.</p>
-        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
-    </div>
-</div>
-<div>
+  </div>
+
+  <div class="container-fluid">
+
+    <div class="row">
+
+          <!-- Map -->  
+     <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Distribution of Donations
+          </div>
+          <div class="chart-stage">
+            <div id="us-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Map -->
+
+      <div class="col-sm-6">
+        <div class="row">
+
+          <!-- Time Chart --> 
+          <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Number of Donations
+              </div>
+              <div class="chart-stage">
+                <div id="time-chart"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Time Chart --> 
+
+          <!-- Resources Pie -->
+          <div class="col-sm-6">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Resources Type
+              </div>
+              <div class="chart-stage">
+                <div id="resource-type-row-chart"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Resources Pie -->
+
+          <!-- Poverty Pie -->
+          <div class="col-sm-6">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Poverty Level
+              </div>
+              <div class="chart-stage">
+                <div id="poverty-level-row-chart"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Poverty Pie -->
+
+        </div>
+      </div>
+
     
-<table>
-<thead>
-      <tr>
-         <th>Station Names</th>
-      </tr>
-   </thead>
 
-   <tbody>  
-       {% for info in stationObject %}
-      <tr>
+      <!-- Metric 1 -->
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Total Number of Donations
+          </div>
+          <div class="chart-stage">
+            <div id="number-projects-nd"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Metric 1 -->
 
-         <td>{{ info.stat_name }}</td>
-      </tr>
+      <!-- Metric 2 -->
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Total Donations in USD
+          </div>
+          <div class="chart-stage">
+            <div id="total-donations-nd"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Metric 2 -->
 
-       {% endfor %}
+    </div>
 
-   </tbody>
- 
+  </div>
 
-</table>
-</div>
+  <div>
+    
+    
+   </div>
+    <div>
+    <hr>
+    <p class="small text-muted">Built with &#9829; by <a href="https://keen.io">Keen IO</a></p>
+  </div>
 
-{% endblock %}
+  <script src="{% static 'visualapp/lib/js/jquery.min.js' %}"></script>
+  <script src="{% static 'visualapp/lib/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'visualapp/lib/js/crossfilter.js' %}"></script>
+  <script src="{% static 'visualapp/lib/js/d3.js' %}"></script>
+  <script src="{% static 'visualapp/lib/js/dc.js' %}"></script>
+  <script src="{% static 'visualapp/lib/js/queue.js' %}"></script>
+  <script src="{% static 'visualapp/js/graphs.js' %}"></script>
+  
+  <script src="{% static 'visualapp/lib/js/keen.min.js' %}"></script>
+</body>
+</html>
